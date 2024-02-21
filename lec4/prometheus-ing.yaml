@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "prometheus.$MASTER-1_EXTERNAL_IP.sslip.io"
+  - host: "prometheus.3.39.152.82.sslip.io"
     http:
       paths:
       - path: /

@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "grafana.$MASTER-1_EXTERNAL_IP.sslip.io"
+  - host: "grafana.3.39.152.82.sslip.io"
     http:
       paths:
       - path: /

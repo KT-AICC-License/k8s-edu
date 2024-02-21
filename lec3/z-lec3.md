@@ -152,8 +152,8 @@ curl http://172.26.5.74/nginx
 
 ## external-ip로 접속이 가능해 졌다(browser로도 가능)
 ## 모든 노드의 external-ip로 접속 가능(default: 80 open)  
-curl http://$MASTER-1_EXTERNAL_IP/nginx
-curl http://$MASTER-1_EXTERNAL_IP/apache
+curl http://3.39.152.82/nginx
+curl http://3.39.152.82/apache
 
 ```
 ## 1.4 host 기반으로 설정 가능하다 
@@ -166,7 +166,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "nginx.$MASTER-1_EXTERNAL_IP.sslip.io"
+  - host: "nginx.3.39.152.82.sslip.io"
     http:
       paths:
       - path: /
@@ -176,7 +176,7 @@ spec:
             name: nginx-svc
             port:
               number: 80
-  - host: "apache.$MASTER-1_EXTERNAL_IP.sslip.io"
+  - host: "apache.3.39.152.82.sslip.io"
     http:
       paths:
       - path: /
@@ -192,8 +192,8 @@ k apply -f ingress-host-rule.yaml
 
 k get ing
 
-curl http://nginx.$MASTER-1_EXTERNAL_IP.sslip.io/
-curl http://apache.$MASTER-1_EXTERNAL_IP.sslip.io/
+curl http://nginx.3.39.152.82.sslip.io/
+curl `http://apache.3.39.152.82.sslip.io/
 
 ```
 
@@ -225,7 +225,7 @@ spec:
   tls:
   - secretName: nginx-tls-secret
   rules:
-  - host: "nginx.$MASTER-1_EXTERNAL_IP.sslip.io"
+  - host: "nginx.3.39.152.82.sslip.io"
     http:
       paths:
       - path: /
@@ -240,10 +240,10 @@ spec:
 ## ingress-rule 배포
 k apply -f ingress-tls.yaml
 # 브라우저에서 
-http://nginx.$MASTER-1_EXTERNAL_IP.sslip.io  ## 접속안됨
+http://nginx.3.39.152.82.sslip.io  ## 접속안됨
 
 # aws lightsail의 master-1 의 방화벽(network) 443 포트 추가 
-https://nginx.$MASTER-1_EXTERNAL_IP.sslip.io 
+https://nginx.3.39.152.82.sslip.io 
 
 ```
 ## redirect http to https(강제적)

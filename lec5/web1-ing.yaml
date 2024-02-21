@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "nginx.$MASTER-1_EXTERNAL_IP.sslip.io"
+  - host: "nginx.3.39.152.82.sslip.io"
     http:
       paths:
       - path: /

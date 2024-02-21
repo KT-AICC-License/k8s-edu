@@ -45,10 +45,10 @@ ansible -i host-vm all -m ping
 ansible-playbook -i host-vm playbook.yml -t "argocd, app-deploy" -e "@vars.yml"
 
 ```
-- https://argocd.$MASTER-1_EXTERNAL_IP.sslip.io/ 접속한다 
+- https://argocd.3.39.152.82.sslip.io/ 접속한다 
 - 로그인 : admin/admin1234
 - vas app이 정상적으로 생성되었는지 확인
-- vas app 접속 : http://vas.$MASTER-1_EXTERNAL_IP.sslip.io/
+- vas app 접속 : http://vas.3.39.152.82.sslip.io/
 
 # demo app 수정 
 ```sh

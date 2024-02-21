@@ -43,7 +43,7 @@ k get svc
 ## 가상의 서비스 ip가 생성되었다 
 
 ## master-1에서 다음과 같이 cluster-ip로  조회가 가능해진다 
-curl http://10.43.82.134
+curl http://10.43.144.200
 
 ## 서비스가 로드밸렁스 하는지 확인해 본다 (3개 에 모두 적용)
 ## install-vm에서 실행 
@@ -60,7 +60,7 @@ curl http://10.43.82.134
 ## 또는 for-loop
 for i in {1..1000} 
 do
-  curl http://10.43.82.134 
+  curl http://10.43.144.200
   echo " (${i})"
   sleep 1
 done
@@ -100,14 +100,14 @@ k get pod -o wide
 k get nodes -o wide
 
 # install-vm에서 node의 ip로 조회 해본다( cluseter 외부에서 조회 가능)
-curl 172.26.13.104:30001 ## master-1
-curl 172.26.4.253:30001  ## worker-1
-curl 172.26.5.74:30001   ## worker-2
+curl 172.26.8.74:30001 ## master-1
+curl 172.26.3.104:30001  ## worker-1
+curl 172.26.9.60:30001   ## worker-2
 
 # 클러스 외부의 Browser에서 
 # aws worker node network   방화벽 30001 번 오픈 (master-1,worker-1,worker-2)
 # worker node external-ip 로 접속 
-curl http://$MASTER-1_EXTERNAL_IP:30001  ## master-1
+curl http://3.39.152.82:30001  ## master-1
 curl http://43.201.116.156:30001 ## worker-1
 curl http://3.38.191.50:30001  ## worker-2
 
